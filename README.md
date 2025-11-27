@@ -6,4 +6,3 @@ build
 cii
 perf
 refactor
-revert
