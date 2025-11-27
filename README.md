@@ -8,4 +8,3 @@ perf
 refactor
 revert
 style
-test
