@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.2.0...release-please-test-v0.3.0) (2025-11-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove draft
+
+### Bug Fixes
+
+* remove draft ([66a4b42](https://github.com/tgrbrooks/release-please-test/commit/66a4b422aefeb82a828f18dc08a58644c1fc0b64))
+
+
+### Documentation
+
+* doc ([62af683](https://github.com/tgrbrooks/release-please-test/commit/62af683726e0bd0d56b005dcf1be0dd48c2609eb))
+
 ## [0.2.0](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.1.0...release-please-test-v0.2.0) (2025-11-27)
 
 
