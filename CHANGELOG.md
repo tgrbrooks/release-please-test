@@ -1,0 +1,62 @@
+# Changelog
+
+## [0.2.0](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.1.0...release-please-test-v0.2.0) (2025-11-27)
+
+
+### Features
+
+* add src ([#3](https://github.com/tgrbrooks/release-please-test/issues/3)) ([16e92e9](https://github.com/tgrbrooks/release-please-test/commit/16e92e945a133c9386995f64038456ede081cb3b))
+
+
+### Bug Fixes
+
+* commit ([#5](https://github.com/tgrbrooks/release-please-test/issues/5)) ([2f559fc](https://github.com/tgrbrooks/release-please-test/commit/2f559fc235f546f3dd4e74203c06693aa5533e2a))
+
+
+### Performance Improvements
+
+* perf ([84bb6b3](https://github.com/tgrbrooks/release-please-test/commit/84bb6b317164dfdb76466d0581924db9709709d9))
+
+
+### Reverts
+
+* a ([2401c2f](https://github.com/tgrbrooks/release-please-test/commit/2401c2fc287f5a8353a97f070d8021122dc77880))
+
+
+### Documentation
+
+* docs ([#6](https://github.com/tgrbrooks/release-please-test/issues/6)) ([efa4692](https://github.com/tgrbrooks/release-please-test/commit/efa4692c668c152daaa6aaba6a20a1f15cae06b5))
+* update ([0052790](https://github.com/tgrbrooks/release-please-test/commit/0052790532526d1b1924f0069e75508a9eecf42d))
+
+
+### Styles
+
+* a ([e0da783](https://github.com/tgrbrooks/release-please-test/commit/e0da783d7882e714b309185f67fe0fffb39e35dc))
+
+
+### Miscellaneous Chores
+
+* chore ([7341bc9](https://github.com/tgrbrooks/release-please-test/commit/7341bc988f691cbe7f9962d7601bc87bccebd570))
+* update config ([4ecac59](https://github.com/tgrbrooks/release-please-test/commit/4ecac590f16f3ea904d5b4d2ed6aee0f46273a6d))
+
+
+### Code Refactoring
+
+* a ([66d960f](https://github.com/tgrbrooks/release-please-test/commit/66d960f65b67ccd061e7a7b03245e13572e2a1bd))
+
+
+### Tests
+
+* a ([cd127bd](https://github.com/tgrbrooks/release-please-test/commit/cd127bda2c34425fc9e4f64451a18a4ee5c2a996))
+* remove ([0052790](https://github.com/tgrbrooks/release-please-test/commit/0052790532526d1b1924f0069e75508a9eecf42d))
+
+
+### Build System
+
+* build ([098bde0](https://github.com/tgrbrooks/release-please-test/commit/098bde093d7fd4ec43f867fc219f73e2f9ba1365))
+* build ([92d1345](https://github.com/tgrbrooks/release-please-test/commit/92d1345c0c4068b2dac9fadf0164266e43b456e7))
+
+
+### Continuous Integration
+
+* ci ([c155841](https://github.com/tgrbrooks/release-please-test/commit/c155841180d3a75b69c69668f4db6a51dd249258))
