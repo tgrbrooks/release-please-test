@@ -3,7 +3,6 @@
         ".": {
             "release-type": "node",
             "bump-minor-pre-major": true,
-            "draft": true,
             "changelog-sections": [
               { "type": "feat", "section": "Features" },
               { "type": "feature", "section": "Features" },
