@@ -16,12 +16,13 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
       - uses: ./.github/workflows/push_device_software_to_ecr.yml
-        if: ${{ steps.release-please.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created }}
         with:
-          version: ${{ steps.release-please.outputs.major }}.${{ steps.release-please.outputs.minor }}.${{ steps.release-please.outputs.patch }}
+          version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
