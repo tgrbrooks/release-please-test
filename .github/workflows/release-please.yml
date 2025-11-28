@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 
 jobs:
   release-please:
@@ -20,3 +21,7 @@ jobs:
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+      - uses: ./.github/workflows/push_device_software_to_ecr.yml
+        if: ${{ steps.release-please.outputs['services/controller--release_created'] }}
+        with:
+          version: ${{ steps.release-please.outputs['services/controller--major'] }}.${{ steps.release-please.outputs['services/controller--minor'] }}.${{ steps.release-please.outputs['services/controller--patch'] }}
