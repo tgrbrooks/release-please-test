@@ -27,6 +27,7 @@ jobs:
           manifest-file: .release-please-manifest.json
  
   push-device-software-to-ecr:
+    needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     uses: ./.github/workflows/push_device_software_to_ecr.yml
     secrets: inherit
