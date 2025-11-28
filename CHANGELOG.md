@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.3.0...release-please-test-v0.4.0) (2025-11-28)
+
+
+### Features
+
+* trigger workflow ([#14](https://github.com/tgrbrooks/release-please-test/issues/14)) ([a208f53](https://github.com/tgrbrooks/release-please-test/commit/a208f53327341a55c9425a11a502c1213d699605))
+
+
+### Code Refactoring
+
+* b ([ee035aa](https://github.com/tgrbrooks/release-please-test/commit/ee035aaabe6778d48231051a8299f15d749cee9a))
+
 ## [0.3.0](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.2.0...release-please-test-v0.3.0) (2025-11-27)
 
 
