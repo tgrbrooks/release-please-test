@@ -18,5 +18,7 @@ jobs:
     name: "Push services (${{ inputs.version }})"
     steps:
       - name: Checkout code
+        uses: actions/checkout@v4.3.1
+      - name: Checkout code
         run: echo ${{ inputs.version }}
 
