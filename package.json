@@ -1,6 +1,6 @@
 {
   "name": "release-please-test",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "main": "index.js",
   "repository": "https://github.com/tgrbrooks/release-please-test.git",
   "author": "Tom Brooks <tom.brooks@mytos.bio>",
