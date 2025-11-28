@@ -22,6 +22,8 @@ jobs:
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
       - uses: ./.github/workflows/push_device_software_to_ecr.yml
         if: ${{ steps.release.outputs.release_created }}
         with:
