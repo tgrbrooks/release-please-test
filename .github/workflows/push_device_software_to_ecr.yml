@@ -1,0 +1,22 @@
+name: Push Device software version to ECR
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: 'Version tag for the compose file (e.g., "1.0.0")'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  push-services:
+    runs-on: ubuntu-latest
+    name: "Push services (${{ inputs.version }})"
+    steps:
+      - name: Checkout code
+        run: echo ${{ inputs.version }}
+
