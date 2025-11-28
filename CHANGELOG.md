@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.4.3...release-please-test-v0.4.4) (2025-11-28)
+
+
+### Bug Fixes
+
+* checkout ([#21](https://github.com/tgrbrooks/release-please-test/issues/21)) ([2ad95de](https://github.com/tgrbrooks/release-please-test/commit/2ad95dee7755d66bc4a89e355ae2e6cb7988a6ab))
+
 ## [0.4.3](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.4.2...release-please-test-v0.4.3) (2025-11-28)
 
 
