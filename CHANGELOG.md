@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.5.0](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.4.6...release-please-test-v0.5.0) (2025-12-01)
+
+
+### Features
+
+* configure text ([#32](https://github.com/tgrbrooks/release-please-test/issues/32)) ([89cfe24](https://github.com/tgrbrooks/release-please-test/commit/89cfe2400d19eaf629ad77403ee06fac88fdb776))
+
+
+### Bug Fixes
+
+* config ([#33](https://github.com/tgrbrooks/release-please-test/issues/33)) ([35465fb](https://github.com/tgrbrooks/release-please-test/commit/35465fb228f76a87ebd57686a8b4aa23cb153662))
+* path ([#31](https://github.com/tgrbrooks/release-please-test/issues/31)) ([f0dcf4f](https://github.com/tgrbrooks/release-please-test/commit/f0dcf4f08509a83a61a5cf13f9d266a7afdd3f68))
+
+
+### Miscellaneous Chores
+
+* move config ([#28](https://github.com/tgrbrooks/release-please-test/issues/28)) ([f29ba42](https://github.com/tgrbrooks/release-please-test/commit/f29ba42f1591b5760444385d9a551ddaba57ef72))
+
+
+### Tests
+
+* change path ([#30](https://github.com/tgrbrooks/release-please-test/issues/30)) ([7c68504](https://github.com/tgrbrooks/release-please-test/commit/7c6850489b17e94273cb07a148bd5221278a794f))
+
 ## [0.4.6](https://github.com/tgrbrooks/release-please-test/compare/release-please-test-v0.4.5...release-please-test-v0.4.6) (2025-11-28)
 
 
