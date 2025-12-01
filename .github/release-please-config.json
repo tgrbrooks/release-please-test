@@ -1,4 +1,7 @@
 {
+    "pull-request-header": "Header",
+    "pull-request-footer": "Footer",
+    "signoff": "Sign-off",
     "packages": {
         ".": {
             "release-type": "node",
