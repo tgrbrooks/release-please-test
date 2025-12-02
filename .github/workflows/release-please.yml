@@ -22,8 +22,8 @@ jobs:
       version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
       package_release_created: ${{ steps.release.outputs['packages/release-please-test-pkg--release_created'] }}
       package_version: ${{ steps.release.outputs['packages/release-please-test-pkg--version'] }}
-      test-pkg-2_release_created: ${{ steps.release.outputs['packages/test-pkg-2--release_created'] }}
-      test-pkg-2_version: ${{ steps.release.outputs['packages/test-pkg-2--version'] }}
+      package_2_release_created: ${{ steps.release.outputs['packages/test-pkg-2--release_created'] }}
+      package_2_version: ${{ steps.release.outputs['packages/test-pkg-2--version'] }}
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -45,63 +45,37 @@ jobs:
       version: ${{ needs.release-please.outputs.version }}
 
   publish-package-release:
-    name: Publish Release to npm
+    name: Publish Package Release
     needs: release-please
     if: ${{ needs.release-please.outputs.package_release_created }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "yarn"
-          registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
-      - run: cd packages/release-please-test-pkg && yarn install --frozen-lockfile
-      - run: |
-          cd packages/release-please-test-pkg
-          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
-          yarn publish --non-interactive
+    uses: ./.github/workflows/publish-release.yml
+    with:
+      package: packages/release-please-test-pkg
+    secrets: inherit
+
+  publish-package-2-release:
+    name: Publish Package 2 Release
+    needs: release-please
+    uses: ./.github/workflows/publish-release.yml
+    if: ${{ needs.release-please.outputs.package_2_release_created }}
+    with:
+      package: packages/test-pkg-2
+    secrets: inherit
 
   publish-package-dev-release:
-    name: Publish Dev Release
-    runs-on: ubuntu-latest
+    name: Publish Package Dev Release
     needs: release-please
-    if: ${{ !needs.release-please.outputs.package_release_created }}
-    steps:
-      - run: echo ${{ needs.release-please.outputs.package_version }}
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 2
-      - uses: dorny/paths-filter@v3
-        id: changes
-        with:
-          filters: |
-            pkg:
-              - 'packages/release-please-test-pkg/**'
-      - uses: actions/setup-node@v4
-        if: steps.changes.outputs.pkg == 'true'
-        with:
-          node-version-file: ".nvmrc"
-          cache: "yarn"
-          registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
-      - run: cd packages/release-please-test-pkg && yarn install --frozen-lockfile
-        if: steps.changes.outputs.pkg == 'true'
-      - name: Get current version
-        if: steps.changes.outputs.pkg == 'true'
-        id: version
-        run: |
-          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          DEV_VERSION="${{ needs.release-please.outputs.package_version }}-dev.${SHORT_SHA}"
-          echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
-          echo "Publishing dev version: ${DEV_VERSION}"
-      - name: Update package.json with dev version
-        if: steps.changes.outputs.pkg == 'true'
-        run: |
-          cd packages/release-please-test-pkg
-          npm pkg set version="${{ steps.version.outputs.dev_version }}"
-      - name: Publish dev release
-        if: steps.changes.outputs.pkg == 'true'
-        run: |
-          cd packages/release-please-test-pkg
-          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
-          yarn publish --tag dev --non-interactive
+    uses: ./.github/workflows/publish-dev-release.yml
+    if: ${{ needs.release-please.outputs.package_release_created }}
+    with:
+      package: packages/release-please-test-pkg
+    secrets: inherit
+
+  publish-package-2-dev-release:
+    name: Publish Package 2 Dev Release
+    needs: release-please
+    uses: ./.github/workflows/publish-dev-release.yml
+    if: ${{ needs.release-please.outputs.package_2_release_created }}
+    with:
+      package: packages/test-pkg-2
+    secrets: inherit

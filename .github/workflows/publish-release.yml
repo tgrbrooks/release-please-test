@@ -1,0 +1,33 @@
+name: Publish Release
+
+on:
+  workflow_call:
+    inputs:
+      package:
+        required: true
+        type: string
+
+jobs:
+  publish:
+    name: Publish ${{ inputs.package }} Release
+    runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: yarn install --frozen-lockfile
+        working-directory: ${{ inputs.package }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish ${{ inputs.package }} release
+        working-directory: ${{ inputs.package }}
+        run: |
+          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
+          yarn publish --non-interactive
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
