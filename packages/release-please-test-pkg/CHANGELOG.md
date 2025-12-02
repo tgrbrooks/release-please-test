@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.2](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.1...package-v1.0.2) (2025-12-02)
+
+
+### Bug Fixes
+
+* changelog path ([6a8da2e](https://github.com/tgrbrooks/release-please-test/commit/6a8da2ef62c1a54c772942fad9464a57d1c0177c))
+* filter ([#65](https://github.com/tgrbrooks/release-please-test/issues/65)) ([e048ed8](https://github.com/tgrbrooks/release-please-test/commit/e048ed89583fad970bbbaa3fe1ffc2d4753b4a5a))
+* filter ([#66](https://github.com/tgrbrooks/release-please-test/issues/66)) ([dbd96f1](https://github.com/tgrbrooks/release-please-test/commit/dbd96f1d50fa609d0c320b9c412f5bff49c23248))
+
+
+### Documentation
+
+* package 1 ([05e49e6](https://github.com/tgrbrooks/release-please-test/commit/05e49e66ab87f595958432aa89a33ae587fe7946))
+
+
+### Miscellaneous Chores
+
+* print ([#63](https://github.com/tgrbrooks/release-please-test/issues/63)) ([a1f6859](https://github.com/tgrbrooks/release-please-test/commit/a1f6859a846859d7fb68627625fcb40210b08eea))
+
+
+### Tests
+
+* multiple packages ([#64](https://github.com/tgrbrooks/release-please-test/issues/64)) ([549710d](https://github.com/tgrbrooks/release-please-test/commit/549710d5658d276c3889d4a8e3cbbf5ba21db6d4))
+
 ## [1.0.1](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.0...package-v1.0.1) (2025-12-02)
 
 
