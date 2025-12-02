@@ -8,6 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+  }
 }
 
