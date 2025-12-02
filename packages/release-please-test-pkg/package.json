@@ -11,5 +11,8 @@
   "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "release-please-test-package-2": "0.1.0"
   }
 }

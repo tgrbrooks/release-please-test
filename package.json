@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/tgrbrooks/release-please-test.git",
   "author": "Tom Brooks <tom.brooks@mytos.bio>",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }
