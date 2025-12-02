@@ -1,2 +1,2 @@
-main(//comment
+main(//comment 2
 );
