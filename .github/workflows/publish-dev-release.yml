@@ -13,7 +13,13 @@ jobs:
     runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64
     steps:
       - uses: actions/checkout@v6
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            package: ${{ inputs.package }}
       - uses: actions/setup-node@v4
+        if: ${{ steps.changes.outputs.package == 'true' }}
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
@@ -21,10 +27,12 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn install --frozen-lockfile
+        if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Get current version
+      - name: Get current version 
+        if: ${{ steps.changes.outputs.package == 'true' }}
         id: version
         working-directory: ${{ inputs.package }}
         run: |
@@ -34,10 +42,12 @@ jobs:
           echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
           echo "Publishing dev version: ${DEV_VERSION}"
       - name: Update package.json with dev version
+        if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
         run: |
           npm pkg set version="${{ steps.version.outputs.dev_version }}"
       - name: Publish dev release
+        if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
         run: |
           cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc

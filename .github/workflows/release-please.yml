@@ -21,9 +21,7 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
       version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
       package_release_created: ${{ steps.release.outputs['packages/release-please-test-pkg--release_created'] }}
-      package_version: ${{ steps.release.outputs['packages/release-please-test-pkg--version'] }}
       package_2_release_created: ${{ steps.release.outputs['packages/test-pkg-2--release_created'] }}
-      package_2_version: ${{ steps.release.outputs['packages/test-pkg-2--version'] }}
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -66,7 +64,7 @@ jobs:
     name: Publish Package Dev Release
     needs: release-please
     uses: ./.github/workflows/publish-dev-release.yml
-    if: ${{ needs.release-please.outputs.package_release_created }}
+    if: ${{ !needs.release-please.outputs.package_release_created }}
     with:
       package: packages/release-please-test-pkg
     secrets: inherit
@@ -75,7 +73,7 @@ jobs:
     name: Publish Package 2 Dev Release
     needs: release-please
     uses: ./.github/workflows/publish-dev-release.yml
-    if: ${{ needs.release-please.outputs.package_2_release_created }}
+    if: ${{ !needs.release-please.outputs.package_2_release_created }}
     with:
       package: packages/test-pkg-2
     secrets: inherit
