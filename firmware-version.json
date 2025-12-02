@@ -1,4 +1,4 @@
 {
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "Firmware tag to use when building Docker images. Set this to the latest firmware tag (e.g., 'v1.2.3') before merging a release PR. Leave empty to use the default branch (develop)."
 }
