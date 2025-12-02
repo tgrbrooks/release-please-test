@@ -42,7 +42,7 @@ jobs:
     name: Publish Release to npm
     needs: release-please
     if: ${{ needs.release-please.outputs.package_release_created }}
-    runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
@@ -59,7 +59,7 @@ jobs:
     name: Publish Dev Release
     needs: release-please
     if: ${{ !needs.release-please.outputs.package_release_created }}
-    runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
