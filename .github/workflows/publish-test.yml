@@ -40,8 +40,8 @@ jobs:
       - name: Publish dev release
         run: |
           cd packages/release-please-test-pkg
-          NPM_TOKEN=${{secrets.NPM_TOKEN}} yarn publish --tag dev --non-interactive
+          yarn publish --tag dev --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          NPM_CONFIG_USERCONFIG: ./.npmrc
+          NPM_CONFIG_USERCONFIG: ${{ github.workspace }}/packages/release-please-test-pkg/.npmrc
