@@ -1,0 +1,46 @@
+name: Publish Dev Release
+
+on:
+  workflow_call:
+    inputs:
+      package:
+        required: true
+        type: string
+
+jobs:
+  publish:
+    name: Publish ${{ inputs.package }} Dev Release
+    runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: yarn install --frozen-lockfile
+        working-directory: ${{ inputs.package }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Get current version
+        id: version
+        working-directory: ${{ inputs.package }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          DEV_VERSION="${VERSION}-dev.${SHORT_SHA}"
+          echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
+          echo "Publishing dev version: ${DEV_VERSION}"
+      - name: Update package.json with dev version
+        working-directory: ${{ inputs.package }}
+        run: |
+          npm pkg set version="${{ steps.version.outputs.dev_version }}"
+      - name: Publish dev release
+        working-directory: ${{ inputs.package }}
+        run: |
+          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
+          yarn publish --tag dev --non-interactive
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
