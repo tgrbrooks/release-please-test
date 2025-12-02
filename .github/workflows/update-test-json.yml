@@ -1,0 +1,55 @@
+name: Update test.json
+
+on:
+  pull_request:
+    types: [opened, synchronize, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-test-json:
+    name: Update test.json with package version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if PR has autorelease label
+        id: check-label
+        run: |
+          LABELS='${{ toJson(github.event.pull_request.labels) }}'
+          HAS_LABEL=$(node -e "const labels = $LABELS; console.log(labels.some(l => l.name === 'autorelease: pending') ? 'true' : 'false')")
+          echo "has_label=$HAS_LABEL" >> $GITHUB_OUTPUT
+
+      - name: Checkout PR branch
+        if: steps.check-label.outputs.has_label == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Read package version
+        if: steps.check-label.outputs.has_label == 'true'
+        id: read-version
+        run: |
+          VERSION=$(node -p "require('./packages/test-pkg-2/package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Package version: $VERSION"
+
+      - name: Update test.json
+        if: steps.check-label.outputs.has_label == 'true'
+        run: |
+          VERSION="${{ steps.read-version.outputs.version }}"
+          node -e "
+            const fs = require('fs');
+            const testJson = JSON.parse(fs.readFileSync('test.json', 'utf8'));
+            testJson.packageVersion = '$VERSION';
+            fs.writeFileSync('test.json', JSON.stringify(testJson, null, 4) + '\n');
+          "
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        if: steps.check-label.outputs.has_label == 'true'
+        with:
+          commit_message: "chore: update test.json with package version ${{ steps.read-version.outputs.version }}"
+          file_pattern: test.json
+
