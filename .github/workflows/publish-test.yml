@@ -43,3 +43,4 @@ jobs:
           NPM_TOKEN=${{secrets.NPM_TOKEN}} yarn publish --tag dev --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
