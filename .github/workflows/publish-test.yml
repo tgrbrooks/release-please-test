@@ -42,3 +42,6 @@ jobs:
           cd packages/release-please-test-pkg
           cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
           yarn publish --tag dev --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
