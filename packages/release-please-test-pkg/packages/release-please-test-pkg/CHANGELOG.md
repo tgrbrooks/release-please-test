@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.1](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.0...package-v1.0.1) (2025-12-02)
+
+
+### Bug Fixes
+
+* needs ([#54](https://github.com/tgrbrooks/release-please-test/issues/54)) ([ca8cc1b](https://github.com/tgrbrooks/release-please-test/commit/ca8cc1b7e5b29c54214cc43d52622c70caafd562))
+* needs ([#56](https://github.com/tgrbrooks/release-please-test/issues/56)) ([9dd6e6d](https://github.com/tgrbrooks/release-please-test/commit/9dd6e6d79446d52e9a26c3af6cd44ecaaa1c4f7f))
+* publish ([#53](https://github.com/tgrbrooks/release-please-test/issues/53)) ([fb54a37](https://github.com/tgrbrooks/release-please-test/commit/fb54a37e2a227857fceab1277aa4fb7028988997))
+
+
+### Continuous Integration
+
+* publish ([#45](https://github.com/tgrbrooks/release-please-test/issues/45)) ([ba0c377](https://github.com/tgrbrooks/release-please-test/commit/ba0c37744ead07e4750c82fb67d8a4c2f14a9c74))
+
 ## 1.0.0 (2025-12-02)
 
 
