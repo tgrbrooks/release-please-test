@@ -27,11 +27,15 @@
         "packages/release-please-test-pkg": {
             "component": "package",
             "release-type": "node",
-            "dependencies": ["packages/test-pkg-2"]
+            "path": "packages/release-please-test-pkg",
+            "package-name": "release-please-test-package"
         },
         "packages/test-pkg-2": {
             "component": "package-2",
-            "release-type": "node"
+            "release-type": "node",
+            "path": "packages/test-pkg-2",
+            "package-name": "release-please-test-package-2"
         }
-    }
+    },
+    "plugins": ["node-workspace"]
 }
