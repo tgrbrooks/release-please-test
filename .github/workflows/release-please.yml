@@ -21,6 +21,9 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
       version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
       package_release_created: ${{ steps.release.outputs['packages/release-please-test-pkg--release_created'] }}
+      package_version: ${{ steps.release.outputs['packages/release-please-test-pkg--version'] }}
+      test-pkg-2_release_created: ${{ steps.release.outputs['packages/test-pkg-2--release_created'] }}
+      test-pkg-2_version: ${{ steps.release.outputs['packages/test-pkg-2--version'] }}
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -86,10 +89,8 @@ jobs:
         if: steps.changes.outputs.pkg == 'true'
         id: version
         run: |
-          VERSION=$(node -p "require('./packages/release-please-test-pkg/package.json').version")
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          DEV_VERSION="${VERSION}-dev.${SHORT_SHA}"
-          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          DEV_VERSION="${needs.release-please.outputs.package_version}-dev.${SHORT_SHA}"
           echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
           echo "Publishing dev version: ${DEV_VERSION}"
       - name: Update package.json with dev version

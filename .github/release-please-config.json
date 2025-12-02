@@ -27,6 +27,10 @@
         "packages/release-please-test-pkg": {
             "component": "package",
             "release-type": "node"
+        },
+        "packages/test-pkg-2": {
+            "component": "package-2",
+            "release-type": "node"
         }
     }
 }
