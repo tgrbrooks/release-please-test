@@ -40,8 +40,8 @@ jobs:
       - name: Publish dev release
         run: |
           cd packages/release-please-test-pkg
+          echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > .npmrc
           yarn publish --tag dev --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          NPM_CONFIG_USERCONFIG: ${{ github.workspace }}/packages/release-please-test-pkg/.npmrc
