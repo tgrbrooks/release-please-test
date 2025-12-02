@@ -31,15 +31,14 @@
     "ignorePaths": [],
     "customManagers": [
         {
-            "customType": "jsonata",
-            "fileFormat": "json",
+            "customType": "regex",
             "fileMatch": ["^firmware-version.json$"],
-            "matchStrings": ["{ \"currentValue\": $.version }"],
+            "matchStrings": ["\"tag\":\\s*\"(?<currentValue>Production_v[^\"]+)\""],
             "datasourceTemplate": "github-releases",
             "packageNameTemplate": "tgrbrooks/actions-test",
             "depNameTemplate": "tgrbrooks/actions-test",
             "extractVersionTemplate": "^Production_v(?<version>.*)$",
-            "autoReplaceStringTemplate": "Production_v{{newVersion}}"
+            "autoReplaceStringTemplate": "\"tag\": \"Production_v{{newVersion}}\""
         }
     ]
 }
