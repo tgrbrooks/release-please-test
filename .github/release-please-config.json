@@ -1,5 +1,5 @@
 {
-    "separate-pull-requests": true,
+    "separate-pull-requests": false,
     "pull-request-header": "Header",
     "pull-request-footer": "Footer",
     "bump-minor-pre-major": true,
@@ -37,5 +37,7 @@
             "package-name": "release-please-test-package-2"
         }
     },
-    "plugins": ["node-workspace"]
+    "plugins": [
+        {"type": "node-workspace", "merge": false}
+    ]
 }
