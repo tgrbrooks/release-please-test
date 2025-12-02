@@ -1,7 +1,7 @@
 {
     ".": "0.5.0",
     "filler-to-prevent-merge-conflicts": "0.0.0",
-    "packages/release-please-test-pkg": "1.0.2",
+    "packages/release-please-test-pkg": "1.0.3",
     "filler-to-prevent-merge-conflicts-2": "0.0.0",
     "packages/test-pkg-2": "0.2.0"
 }
