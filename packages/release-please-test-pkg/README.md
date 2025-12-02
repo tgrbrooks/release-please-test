@@ -1,3 +1,3 @@
 # release-please-test-pkg
 
-Test 5
+Test 6
