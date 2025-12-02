@@ -1,0 +1,44 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:recommended"],
+    "schedule": [
+        "before 06:00 every weekday",
+        "before 12:00 every weekday",
+        "before 18:00 every weekday"
+    ],
+    "timezone": "Europe/London",
+    "reviewers": ["tgrbrooks"],
+    "assignAutomerge": false,
+    "automerge": false,
+    "constraints": {
+        "constraintsFiltering": "strict",
+        "node": "20.12.0"
+    },
+    "rangeStrategy": "pin",
+    "minimumReleaseAge": "7 days",
+    "prConcurrentLimit": 5,
+    "prHourlyLimit": 5,
+    "separateMinorPatch": true,
+    "separateMultipleMajor": false,
+    "semanticCommitType": "chore",
+    "semanticCommitScope": "dep",
+    "commitMessageAction": "Update",
+    "commitMessageTopic": "{{depName}}",
+    "commitMessageExtra": "from {{#if isPinDigest}}{{{currentDigestShort}}}{{else}}{{#if isMajor}}{{currentVersion}}{{else}}{{#if isSingleVersion}}{{currentVersion}}{{else}}{{#if newValue}}{{{currentValue}}}{{else}}{{{currentDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{newVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+    "dockerfile": {
+        "fileMatch": ["(^|/|\\.)Dockerfile.template$"]
+    },
+    "ignorePaths": [],
+    "customManagers": [
+        {
+            "customType": "jsonata",
+            "fileFormat": "json",
+            "managerFilePatterns": ["/firmware-version.json/"],
+            "matchStrings": ["{ \"currentValue\": $.tag }"],
+            "datasourceTemplate": "github-releases",
+            "packageNameTemplate": "tgrbrooks/actions-test",
+            "depNameTemplate": "tgrbrooks/actions-test",
+            "extractVersionTemplate": "^Production_v(?<version>.*)$"
+        }
+    ]
+}
