@@ -90,7 +90,7 @@ jobs:
         id: version
         run: |
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          DEV_VERSION="${needs.release-please.outputs.package_version}-dev.${SHORT_SHA}"
+          DEV_VERSION="${{ needs.release-please.outputs.package_version }}-dev.${SHORT_SHA}"
           echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
           echo "Publishing dev version: ${DEV_VERSION}"
       - name: Update package.json with dev version
