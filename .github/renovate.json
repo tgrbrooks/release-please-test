@@ -34,11 +34,12 @@
             "customType": "jsonata",
             "fileFormat": "json",
             "fileMatch": ["^firmware-version.json$"],
-            "matchStrings": ["{ \"currentValue\": $.tag }"],
+            "matchStrings": ["{ \"currentValue\": $.version }"],
             "datasourceTemplate": "github-releases",
             "packageNameTemplate": "tgrbrooks/actions-test",
             "depNameTemplate": "tgrbrooks/actions-test",
-            "extractVersionTemplate": "^(?<version>.+)$"
+            "extractVersionTemplate": "^Production_v(?<version>.*)$",
+            "autoReplaceStringTemplate": "Production_v{{newVersion}}"
         }
     ]
 }
