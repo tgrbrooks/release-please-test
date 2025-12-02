@@ -1,5 +1,5 @@
 {
-  "name": "release-please-test-pkg",
+  "name": "release-please-test-package",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
