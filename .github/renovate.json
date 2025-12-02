@@ -38,7 +38,7 @@
             "datasourceTemplate": "github-releases",
             "packageNameTemplate": "tgrbrooks/actions-test",
             "depNameTemplate": "tgrbrooks/actions-test",
-            "extractVersionTemplate": "^Production_v(?<version>.*)$"
+            "extractVersionTemplate": "^(?<version>.*)$"
         }
     ]
 }
