@@ -33,7 +33,7 @@
         {
             "customType": "jsonata",
             "fileFormat": "json",
-            "managerFilePatterns": ["/firmware-version.json/"],
+            "fileMatch": ["^firmware-version.json$"],
             "matchStrings": ["{ \"currentValue\": $.tag }"],
             "datasourceTemplate": "github-releases",
             "packageNameTemplate": "tgrbrooks/actions-test",
