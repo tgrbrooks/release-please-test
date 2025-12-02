@@ -21,7 +21,8 @@
         ".": {
             "component": "root",
             "release-type": "node",
-            "exclude-paths": ["packages/release-please-test-pkg"]
+            "exclude-paths": ["packages/release-please-test-pkg"],
+            "bootstrap-sha": "35465fb228f76a87ebd57686a8b4aa23cb153662"
         },
         "packages/release-please-test-pkg": {
             "component": "package",
