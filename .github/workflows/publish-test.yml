@@ -40,14 +40,5 @@ jobs:
       - name: Publish dev release
         run: |
           cd packages/release-please-test-pkg
-          # Copy the .npmrc that actions/setup-node created to home directory
-          # Yarn v1 reads from ~/.npmrc
-          if [ -n "$NPM_CONFIG_USERCONFIG" ] && [ -f "$NPM_CONFIG_USERCONFIG" ]; then
-            cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
-          else
-            echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > ~/.npmrc
-          fi
+          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
           yarn publish --tag dev --non-interactive
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
