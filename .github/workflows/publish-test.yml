@@ -44,3 +44,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_CONFIG_USERCONFIG: ./.npmrc
