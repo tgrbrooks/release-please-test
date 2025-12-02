@@ -55,14 +55,15 @@ jobs:
       - run: cd packages/release-please-test-pkg && yarn install --frozen-lockfile
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-      - run: cd packages/release-please-test-pkg && yarn publish --non-interactive
+      - run: |
+          cd packages/release-please-test-pkg
+          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
+          yarn publish --non-interactive
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-package-dev-release:
     name: Publish Dev Release
-    needs: release-please
-    if: ${{ !needs.release-please.outputs.package_release_created }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -92,4 +93,7 @@ jobs:
       - name: Publish dev release
         run: |
           cd packages/release-please-test-pkg
-          NPM_TOKEN=${{secrets.NPM_TOKEN}} yarn publish --tag dev --non-interactive
+          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
+          yarn publish --tag dev --non-interactive
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
