@@ -10,6 +10,9 @@ permissions:
   pull-requests: write
   id-token: write
 
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
 jobs:
   release-please:
     name: Release Please
@@ -50,17 +53,11 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "yarn"
           registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: cd packages/release-please-test-pkg && yarn install --frozen-lockfile
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: |
           cd packages/release-please-test-pkg
           cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
           yarn publish --non-interactive
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-package-dev-release:
     name: Publish Dev Release
@@ -69,17 +66,24 @@ jobs:
     if: ${{ !needs.release-please.outputs.package_release_created }}
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            pkg:
+              - 'packages/release-please-test-pkg/**'
       - uses: actions/setup-node@v4
+        if: steps.changes.outputs.pkg == 'true'
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
           registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: cd packages/release-please-test-pkg && yarn install --frozen-lockfile
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: steps.changes.outputs.pkg == 'true'
       - name: Get current version
+        if: steps.changes.outputs.pkg == 'true'
         id: version
         run: |
           VERSION=$(node -p "require('./packages/release-please-test-pkg/package.json').version")
@@ -89,13 +93,13 @@ jobs:
           echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
           echo "Publishing dev version: ${DEV_VERSION}"
       - name: Update package.json with dev version
+        if: steps.changes.outputs.pkg == 'true'
         run: |
           cd packages/release-please-test-pkg
           npm pkg set version="${{ steps.version.outputs.dev_version }}"
       - name: Publish dev release
+        if: steps.changes.outputs.pkg == 'true'
         run: |
           cd packages/release-please-test-pkg
           cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
           yarn publish --tag dev --non-interactive
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
