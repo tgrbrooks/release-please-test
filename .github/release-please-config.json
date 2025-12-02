@@ -26,8 +26,7 @@
         },
         "packages/release-please-test-pkg": {
             "component": "package",
-            "release-type": "node",
-            "changelog-path": "packages/release-please-test-pkg/CHANGELOG.md"
+            "release-type": "node"
         }
     }
 }
