@@ -17,6 +17,7 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
+      package_release_created: ${{ steps.release.outputs['packages/release-please-test-pkg--release_created'] }}
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -36,3 +37,51 @@ jobs:
       id-token: write
     with:
       version: ${{ needs.release-please.outputs.version }}
+
+  publish-package-release:
+    name: Publish Release to npm
+    needs: release-please
+    if: ${{ needs.release-please.outputs.package_release_created }}
+    runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          registry-url: "https://registry.npmjs.org"
+      - run: cd packages/release-please-test-pkg && yarn install --frozen-lockfile
+      - run: cd packages/release-please-test-pkg && yarn publish --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-package-dev-release:
+    name: Publish Dev Release
+    needs: release-please
+    if: ${{ !needs.release-please.outputs.package_release_created }}
+    runs-on: runs-on=${{ github.run_id }}/runner=4cpu-linux-arm64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          registry-url: "https://registry.npmjs.org"
+      - run: cd packages/release-please-test-pkg && yarn install --frozen-lockfile
+      - name: Get current version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./packages/release-please-test-pkg/package.json').version")
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          DEV_VERSION="${VERSION}-dev.${SHORT_SHA}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
+          echo "Publishing dev version: ${DEV_VERSION}"
+      - name: Update package.json with dev version
+        run: |
+          cd packages/release-please-test-pkg
+          npm pkg set version="${{ steps.version.outputs.dev_version }}"
+      - name: Publish dev release
+        run: cd packages/release-please-test-pkg && yarn publish --tag dev --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
