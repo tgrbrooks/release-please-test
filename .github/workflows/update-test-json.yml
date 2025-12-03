@@ -11,24 +11,16 @@ permissions:
 jobs:
   update-test-json:
     name: Update test.json with package version
+    if: "contains(github.event.pull_request.labels.*.name, 'autorelease: pending')"
     runs-on: ubuntu-latest
     steps:
-      - name: Check if PR has autorelease label
-        id: check-label
-        run: |
-          LABELS='${{ toJson(github.event.pull_request.labels) }}'
-          HAS_LABEL=$(node -e "const labels = $LABELS; console.log(labels.some(l => l.name === 'autorelease: pending') ? 'true' : 'false')")
-          echo "has_label=$HAS_LABEL" >> $GITHUB_OUTPUT
-
       - name: Checkout PR branch
-        if: steps.check-label.outputs.has_label == 'true'
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Read package version
-        if: steps.check-label.outputs.has_label == 'true'
         id: read-version
         run: |
           VERSION=$(node -p "require('./packages/test-pkg-2/package.json').version")
@@ -36,7 +28,6 @@ jobs:
           echo "Package version: $VERSION"
 
       - name: Update test.json
-        if: steps.check-label.outputs.has_label == 'true'
         run: |
           VERSION="${{ steps.read-version.outputs.version }}"
           node -e "
@@ -48,7 +39,6 @@ jobs:
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7
-        if: steps.check-label.outputs.has_label == 'true'
         with:
           commit_message: "chore: update test.json with package version ${{ steps.read-version.outputs.version }}"
           file_pattern: test.json
