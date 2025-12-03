@@ -11,7 +11,7 @@ permissions:
 jobs:
   update-test-json:
     name: Update test.json with package version
-    if: contains(github.event.pull_request.labels.*.name, 'autorelease\: pending')
+    if: contains(github.event.pull_request.labels.*.name, 'autorelease')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout PR branch
