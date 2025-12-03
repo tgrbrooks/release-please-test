@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/tgrbrooks/release-please-test/compare/root-v0.6.0...root-v0.6.1) (2025-12-03)
+
+
+### Bug Fixes
+
+* checkout ([53bdbb8](https://github.com/tgrbrooks/release-please-test/commit/53bdbb8d310f0cbf0651576f4921cb8804f1405b))
+
 ## [0.6.0](https://github.com/tgrbrooks/release-please-test/compare/root-v0.5.0...root-v0.6.0) (2025-12-03)
 
 
