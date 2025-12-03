@@ -120,6 +120,7 @@ jobs:
     if: ${{ !needs.release-please.outputs.package_release_created }}
     with:
       package: packages/release-please-test-pkg
+      candidate_version: ${{ needs.release-please.outputs.package_candidate_version }}
     secrets: inherit
 
   publish-package-2-dev-release:
@@ -129,4 +130,5 @@ jobs:
     if: ${{ !needs.release-please.outputs.package_2_release_created }}
     with:
       package: packages/test-pkg-2
+      candidate_version: ${{ needs.release-please.outputs.package_2_candidate_version }}
     secrets: inherit
