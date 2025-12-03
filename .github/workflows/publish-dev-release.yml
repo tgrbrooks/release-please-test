@@ -20,7 +20,7 @@ jobs:
         id: changes
         with:
           filters: |
-            package: ${{ inputs.package }}
+            package: ${{ inputs.package }}/**
       - uses: actions/setup-node@v4
         if: ${{ steps.changes.outputs.package == 'true' }}
         with:
