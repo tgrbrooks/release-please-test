@@ -47,30 +47,19 @@ jobs:
           # <details><summary>package-2: 0.2.1</summary>
           
           ROOT_VERSION=$(echo "$PR_BODY" | sed -n 's/.*root:[[:space:]]*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p' | head -n1)
+          echo "root_version=$ROOT_VERSION" >> $GITHUB_OUTPUT
           PACKAGE_VERSION=$(echo "$PR_BODY" | sed -n 's/.*package:[[:space:]]*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p' | head -n1)
+          echo "package_version=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
           PACKAGE_2_VERSION=$(echo "$PR_BODY" | sed -n 's/.*package-2:[[:space:]]*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p' | head -n1)
-          
-          # Output versions if found
-          if [ -n "$ROOT_VERSION" ]; then
-            echo "root_version=$ROOT_VERSION" >> $GITHUB_OUTPUT
-            echo "✓ Found root version: $ROOT_VERSION"
-          else
-            echo "✗ No root version found"
-          fi
-          
-          if [ -n "$PACKAGE_VERSION" ]; then
-            echo "package_version=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
-            echo "✓ Found package version: $PACKAGE_VERSION"
-          else
-            echo "✗ No package version found"
-          fi
-          
-          if [ -n "$PACKAGE_2_VERSION" ]; then
-            echo "package_2_version=$PACKAGE_2_VERSION" >> $GITHUB_OUTPUT
-            echo "✓ Found package-2 version: $PACKAGE_2_VERSION"
-          else
-            echo "✗ No package-2 version found"
-          fi
+          echo "package_2_version=$PACKAGE_2_VERSION" >> $GITHUB_OUTPUT
+      - name: Upload artifact
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # zip the test.json file
+          zip test.json.zip test.json
+          gh release upload ${{ steps.release.outputs.tag_name }} test.json.zip
 
   test-output:
     runs-on: ubuntu-latest
