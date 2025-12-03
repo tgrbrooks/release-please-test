@@ -1,5 +1,80 @@
 # Changelog
 
+## [0.6.0](https://github.com/tgrbrooks/release-please-test/compare/root-v0.5.0...root-v0.6.0) (2025-12-03)
+
+
+### Features
+
+* package-2 ([bfbb422](https://github.com/tgrbrooks/release-please-test/commit/bfbb4220295b2eb7a72371c0b8d45947840024b2))
+* path filter ([79449ff](https://github.com/tgrbrooks/release-please-test/commit/79449ff74ef7666ad7d7759b20bfca530973498e))
+* upload artifacts ([#82](https://github.com/tgrbrooks/release-please-test/issues/82)) ([af00ff9](https://github.com/tgrbrooks/release-please-test/commit/af00ff95518e4d1febea03723312bd33ad5cb8d1))
+
+
+### Bug Fixes
+
+* add env ([#51](https://github.com/tgrbrooks/release-please-test/issues/51)) ([8b74cf7](https://github.com/tgrbrooks/release-please-test/commit/8b74cf790578c5fc5a040664310ea28891971913))
+* add filler ([#41](https://github.com/tgrbrooks/release-please-test/issues/41)) ([8cca3dd](https://github.com/tgrbrooks/release-please-test/commit/8cca3ddb637fe47e33903a9879ec08666dd2cd79))
+* add token ([#49](https://github.com/tgrbrooks/release-please-test/issues/49)) ([7eeac17](https://github.com/tgrbrooks/release-please-test/commit/7eeac17925096798adf37352c1d490b4097253e7))
+* changelog path ([6a8da2e](https://github.com/tgrbrooks/release-please-test/commit/6a8da2ef62c1a54c772942fad9464a57d1c0177c))
+* filter ([#65](https://github.com/tgrbrooks/release-please-test/issues/65)) ([e048ed8](https://github.com/tgrbrooks/release-please-test/commit/e048ed89583fad970bbbaa3fe1ffc2d4753b4a5a))
+* filter ([#66](https://github.com/tgrbrooks/release-please-test/issues/66)) ([dbd96f1](https://github.com/tgrbrooks/release-please-test/commit/dbd96f1d50fa609d0c320b9c412f5bff49c23248))
+* needs ([#54](https://github.com/tgrbrooks/release-please-test/issues/54)) ([ca8cc1b](https://github.com/tgrbrooks/release-please-test/commit/ca8cc1b7e5b29c54214cc43d52622c70caafd562))
+* needs ([#55](https://github.com/tgrbrooks/release-please-test/issues/55)) ([46d6eec](https://github.com/tgrbrooks/release-please-test/commit/46d6eec5f9d1678f09e8cc04848fc566752db425))
+* needs ([#56](https://github.com/tgrbrooks/release-please-test/issues/56)) ([9dd6e6d](https://github.com/tgrbrooks/release-please-test/commit/9dd6e6d79446d52e9a26c3af6cd44ecaaa1c4f7f))
+* publish ([#52](https://github.com/tgrbrooks/release-please-test/issues/52)) ([c896d1b](https://github.com/tgrbrooks/release-please-test/commit/c896d1bae90e8421dce1338a52f0ccde86428976))
+* publish ([#53](https://github.com/tgrbrooks/release-please-test/issues/53)) ([fb54a37](https://github.com/tgrbrooks/release-please-test/commit/fb54a37e2a227857fceab1277aa4fb7028988997))
+* remove exclude from package ([#43](https://github.com/tgrbrooks/release-please-test/issues/43)) ([bbbcc3c](https://github.com/tgrbrooks/release-please-test/commit/bbbcc3cbcc6275dcd54ee3a791feede1b0862e6e))
+* runners ([#67](https://github.com/tgrbrooks/release-please-test/issues/67)) ([75139d3](https://github.com/tgrbrooks/release-please-test/commit/75139d3244468826882f24eda3b2ed7c7b4ba4ab))
+* runs on ([#47](https://github.com/tgrbrooks/release-please-test/issues/47)) ([ad31630](https://github.com/tgrbrooks/release-please-test/commit/ad316300829b4a3aadd5610d5db730122173a94c))
+* set tag ([5dce7b2](https://github.com/tgrbrooks/release-please-test/commit/5dce7b27738b4621cb5d307d074a0fd76656320f))
+* string replacement ([303a8ad](https://github.com/tgrbrooks/release-please-test/commit/303a8ad3ca1b57dfb97ceca8faee8284c5c8940b))
+* Update package filter ([#80](https://github.com/tgrbrooks/release-please-test/issues/80)) ([cefb6df](https://github.com/tgrbrooks/release-please-test/commit/cefb6df6b2870c24667b4f26e345a9f633e61d2a))
+* update renovate ([fcbbe80](https://github.com/tgrbrooks/release-please-test/commit/fcbbe80a65a2958c2b6b70bacda788c955cd0754))
+* use regex ([da60054](https://github.com/tgrbrooks/release-please-test/commit/da600547fc3d557317664fc85558f3856642b09c))
+* use version ([4db2c57](https://github.com/tgrbrooks/release-please-test/commit/4db2c5701a275cac1a9378db864961b84d894d74))
+* version template ([1d86dc6](https://github.com/tgrbrooks/release-please-test/commit/1d86dc651c628922e1ff572e246eb004dd25fec8))
+* version template 2 ([0aff790](https://github.com/tgrbrooks/release-please-test/commit/0aff790b144f8b2f0e33ff4a7dc80fb242d83b8d))
+* version template 3 ([3533324](https://github.com/tgrbrooks/release-please-test/commit/35333249246dd2e1bee62af8979a8011ce9fc73d))
+* workspaces ([#70](https://github.com/tgrbrooks/release-please-test/issues/70)) ([47b75bb](https://github.com/tgrbrooks/release-please-test/commit/47b75bb250256f4bf132b82ff0d97877e32e1bd6))
+
+
+### Miscellaneous Chores
+
+* add nvmrc ([#48](https://github.com/tgrbrooks/release-please-test/issues/48)) ([06c925b](https://github.com/tgrbrooks/release-please-test/commit/06c925b9e30091680aa649e32cd83f9e1f772354))
+* **dep:** update tgrbrooks/actions-test from 0.0.13 to 0.0.14 ([#78](https://github.com/tgrbrooks/release-please-test/issues/78)) ([59e927b](https://github.com/tgrbrooks/release-please-test/commit/59e927b4686febe35fdfe2fb83849877679245e6))
+* **main:** release package 1.0.0 ([#37](https://github.com/tgrbrooks/release-please-test/issues/37)) ([0dfdc69](https://github.com/tgrbrooks/release-please-test/commit/0dfdc692ad42a1d8173b3283d14872c2d3d24f93))
+* **main:** release package 1.0.1 ([#46](https://github.com/tgrbrooks/release-please-test/issues/46)) ([aad2775](https://github.com/tgrbrooks/release-please-test/commit/aad277559fedba76ee1314518e7ea52cc623e06a))
+* **main:** release package 1.0.2 ([#58](https://github.com/tgrbrooks/release-please-test/issues/58)) ([7f0e405](https://github.com/tgrbrooks/release-please-test/commit/7f0e405bf8dfc9e7b648a1e77b231584833a4f38))
+* **main:** release package-2 0.2.0 ([#61](https://github.com/tgrbrooks/release-please-test/issues/61)) ([03bab39](https://github.com/tgrbrooks/release-please-test/commit/03bab3955b897910ffc88451c19f84d297e1eb15))
+* merge ([#73](https://github.com/tgrbrooks/release-please-test/issues/73)) ([e7c5d30](https://github.com/tgrbrooks/release-please-test/commit/e7c5d30c6618dad8f48a52fd8452fffe9624c9b3))
+* print ([#63](https://github.com/tgrbrooks/release-please-test/issues/63)) ([a1f6859](https://github.com/tgrbrooks/release-please-test/commit/a1f6859a846859d7fb68627625fcb40210b08eea))
+* workspaces ([#68](https://github.com/tgrbrooks/release-please-test/issues/68)) ([066b8f3](https://github.com/tgrbrooks/release-please-test/commit/066b8f3d393a9bd09d42e285f324c429d62fa596))
+
+
+### Tests
+
+* candidate versions ([2b3b579](https://github.com/tgrbrooks/release-please-test/commit/2b3b5791fa72ec484dede74418b49c0c9588a685))
+* contains ([#81](https://github.com/tgrbrooks/release-please-test/issues/81)) ([824535e](https://github.com/tgrbrooks/release-please-test/commit/824535e718d07b1cb9d266920fc8eace00feabaa))
+* multiple packages ([#64](https://github.com/tgrbrooks/release-please-test/issues/64)) ([549710d](https://github.com/tgrbrooks/release-please-test/commit/549710d5658d276c3889d4a8e3cbbf5ba21db6d4))
+* non package commit ([#59](https://github.com/tgrbrooks/release-please-test/issues/59)) ([429b0a2](https://github.com/tgrbrooks/release-please-test/commit/429b0a2faee545b47a1ba90944c353edd36bed79))
+* output ([dbdff93](https://github.com/tgrbrooks/release-please-test/commit/dbdff93003fde3266d03e9651f7b3d44af2020a1))
+* output 2 ([a60c334](https://github.com/tgrbrooks/release-please-test/commit/a60c33436982715ae2ea477c84ec1dd2085c4ffb))
+
+
+### Continuous Integration
+
+* add renovate ([#77](https://github.com/tgrbrooks/release-please-test/issues/77)) ([6c4a365](https://github.com/tgrbrooks/release-please-test/commit/6c4a365ca2ac1d583de33a2d31cdf315ffac502c))
+* publish ([#45](https://github.com/tgrbrooks/release-please-test/issues/45)) ([ba0c377](https://github.com/tgrbrooks/release-please-test/commit/ba0c37744ead07e4750c82fb67d8a4c2f14a9c74))
+* Set version ([17bc231](https://github.com/tgrbrooks/release-please-test/commit/17bc231fe1b9315ba5721fd6878a25f45a66b62e))
+* update ([#75](https://github.com/tgrbrooks/release-please-test/issues/75)) ([dc50a02](https://github.com/tgrbrooks/release-please-test/commit/dc50a02b166ed990a040e734b8b9df2a31c34e12))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-package-2 bumped from 0.2.0 to 0.2.1
+
 ## [0.5.0](https://github.com/tgrbrooks/release-please-test/compare/root-v0.4.6...root-v0.5.0) (2025-12-02)
 
 
