@@ -19,13 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
-      version_1: ${{ steps.release.outputs.version }}
       version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
       package_release_created: ${{ steps.release.outputs['packages/release-please-test-pkg--release_created'] }}
       package_2_release_created: ${{ steps.release.outputs['packages/test-pkg-2--release_created'] }}
       prs: ${{ steps.release.outputs.prs }}
-      body: ${{ steps.release.outputs.body }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
+      pr: ${{ steps.release.outputs.pr }}
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -43,13 +41,8 @@ jobs:
     steps:
       - name: Test Output
         run: |
-          echo "version_1: ${{ needs.release-please.outputs.version_1 }}"
-          echo "version: ${{ needs.release-please.outputs.version }}"
-          echo "package_release_created: ${{ needs.release-please.outputs.package_release_created }}"
-          echo "package_2_release_created: ${{ needs.release-please.outputs.package_2_release_created }}"
-          echo "prs: ${{ needs.release-please.outputs.prs }}"
-          echo "body: ${{ needs.release-please.outputs.body }}"
-          echo "tag_name: ${{ needs.release-please.outputs.tag_name }}"
+          echo "prs: ${{ toJSON(needs.release-please.outputs.prs) }}"
+          echo "pr: ${{ toJSON(needs.release-please.outputs.pr) }}"
 
   push-device-software-to-ecr:
     needs: release-please
