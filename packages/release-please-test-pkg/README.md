@@ -1,3 +1,3 @@
 # release-please-test-pkg
 
-Test 24
+Test 25
