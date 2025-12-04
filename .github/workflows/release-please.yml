@@ -77,9 +77,6 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created }}
     uses: ./.github/workflows/push_device_software_to_ecr.yml
     secrets: inherit
-    permissions:
-      contents: read
-      id-token: write
     with:
       version: ${{ needs.release-please.outputs.version }}
 
