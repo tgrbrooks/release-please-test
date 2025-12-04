@@ -49,5 +49,5 @@ jobs:
         working-directory: ${{ inputs.package }}
         run: |
           rm -f ~/.npmrc
-          npm config set '//registry.npmjs.org' -ws=false
+          npm config set registry 'https://registry.npmjs.org' -ws=false
           yarn publish --tag dev --non-interactive
