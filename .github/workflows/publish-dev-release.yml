@@ -50,6 +50,9 @@ jobs:
         run: |
           less $NPM_CONFIG_USERCONFIG
           rm -f $NPM_CONFIG_USERCONFIG
+          # Remove .npmrc files that reference NPM_TOKEN
+          rm -f .npmrc
+          rm -f ../../.npmrc
           npm config set registry 'https://registry.npmjs.org' -ws=false
           less ~/.npmrc
           less $NPM_CONFIG_USERCONFIG
