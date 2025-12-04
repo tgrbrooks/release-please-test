@@ -1,5 +1,44 @@
 # Changelog
 
+## [1.1.1](https://github.com/tgrbrooks/release-please-test/compare/package-v1.1.0...package-v1.1.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* config ([6cb9fba](https://github.com/tgrbrooks/release-please-test/commit/6cb9fbabbb24b65955a92abe56d3d1747edb31c0))
+* config 2 ([15da98b](https://github.com/tgrbrooks/release-please-test/commit/15da98b9a7fc687e2059253bbf90abe542ba2308))
+* node version ([46920c9](https://github.com/tgrbrooks/release-please-test/commit/46920c9665a720be1db0952c2a1c23968fd9e539))
+* node version 2 ([eee93a9](https://github.com/tgrbrooks/release-please-test/commit/eee93a95dbcac29273fb11a239a2a1f93232c54f))
+* npm token ([f754368](https://github.com/tgrbrooks/release-please-test/commit/f75436837a6cb56f1af9704fef94e11f0833a61e))
+* permissions ([3e76f2d](https://github.com/tgrbrooks/release-please-test/commit/3e76f2dbe6ad03b3badf6940cfb47b63523be3ee))
+* permissions 2 ([86fe450](https://github.com/tgrbrooks/release-please-test/commit/86fe450d59a16517c78f3d244925240722a8729c))
+* please ([fac30fe](https://github.com/tgrbrooks/release-please-test/commit/fac30fe25de98e7a05b50fff583ad6ff82166e84))
+* read only token ([df3b99a](https://github.com/tgrbrooks/release-please-test/commit/df3b99acb0ece67b1085355a553b979330d2f0f4))
+* remove all ([dfc2d56](https://github.com/tgrbrooks/release-please-test/commit/dfc2d56980e98ca2297a31391193872cf03faa6f))
+* remove auth ([e8bdf70](https://github.com/tgrbrooks/release-please-test/commit/e8bdf70ca1652d33e4cfa4bb562b7057ceaa9dc2))
+* repo ([f785140](https://github.com/tgrbrooks/release-please-test/commit/f785140b1434706a349bf927997a4b347938e078))
+* temp ([c28997a](https://github.com/tgrbrooks/release-please-test/commit/c28997afaaab8c650d979dedf74f4063964e1f3d))
+* token ([110eb2c](https://github.com/tgrbrooks/release-please-test/commit/110eb2c2fadc50b5ea5d49c14119a86b0f1e955e))
+
+
+### Documentation
+
+* test ([6bdc0ae](https://github.com/tgrbrooks/release-please-test/commit/6bdc0aefd5a218f70a6929f7d2b45fc400c5cb06))
+
+
+### Tests
+
+* npm publish ([d820943](https://github.com/tgrbrooks/release-please-test/commit/d820943f68aa2b4fd0df021522601bd5e12fe9ad))
+* print ([410fd43](https://github.com/tgrbrooks/release-please-test/commit/410fd4312a8fc30cd7641c539130fd03a4896c7b))
+* re-add auth ([8548909](https://github.com/tgrbrooks/release-please-test/commit/8548909dca6332a545f6d45acc0e0a673e4af051))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-pkg-2 bumped from 0.3.0 to 0.3.1
+
 ## [1.1.0](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.4...package-v1.1.0) (2025-12-04)
 
 

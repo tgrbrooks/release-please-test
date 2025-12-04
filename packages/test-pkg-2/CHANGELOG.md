@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.3.1](https://github.com/tgrbrooks/release-please-test/compare/package-2-v0.3.0...package-2-v0.3.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* config ([6cb9fba](https://github.com/tgrbrooks/release-please-test/commit/6cb9fbabbb24b65955a92abe56d3d1747edb31c0))
+* npm token ([f754368](https://github.com/tgrbrooks/release-please-test/commit/f75436837a6cb56f1af9704fef94e11f0833a61e))
+* remove auth ([e8bdf70](https://github.com/tgrbrooks/release-please-test/commit/e8bdf70ca1652d33e4cfa4bb562b7057ceaa9dc2))
+* repo ([f785140](https://github.com/tgrbrooks/release-please-test/commit/f785140b1434706a349bf927997a4b347938e078))
+
+
+### Documentation
+
+* test ([6bdc0ae](https://github.com/tgrbrooks/release-please-test/commit/6bdc0aefd5a218f70a6929f7d2b45fc400c5cb06))
+
+
+### Tests
+
+* re-add auth ([8548909](https://github.com/tgrbrooks/release-please-test/commit/8548909dca6332a545f6d45acc0e0a673e4af051))
+
 ## [0.3.0](https://github.com/tgrbrooks/release-please-test/compare/package-2-v0.2.2...package-2-v0.3.0) (2025-12-04)
 
 
