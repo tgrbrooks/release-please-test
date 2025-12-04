@@ -48,4 +48,5 @@ jobs:
         if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
         run: |
+          echo "//registry.npmjs.org" > ~/.npmrc
           yarn publish --tag dev --non-interactive
