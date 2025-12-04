@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/tgrbrooks/release-please-test/compare/package-2-v0.2.1...package-2-v0.2.2) (2025-12-04)
+
+
+### Documentation
+
+* test ([72dbea6](https://github.com/tgrbrooks/release-please-test/commit/72dbea6ade0c97306db42507cec8452d83f58770))
+
 ## [0.2.1](https://github.com/tgrbrooks/release-please-test/compare/package-2-v0.2.0...package-2-v0.2.1) (2025-12-03)
 
 

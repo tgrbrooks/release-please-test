@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.4](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.3...package-v1.0.4) (2025-12-04)
+
+
+### Bug Fixes
+
+* docs ([6b4e548](https://github.com/tgrbrooks/release-please-test/commit/6b4e54838e829876c213e8462fedbd834275af6c))
+
+
+### Documentation
+
+* test ([72dbea6](https://github.com/tgrbrooks/release-please-test/commit/72dbea6ade0c97306db42507cec8452d83f58770))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-package-2 bumped from 0.2.1 to 0.2.2
+
 ## [1.0.3](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.2...package-v1.0.3) (2025-12-03)
 
 

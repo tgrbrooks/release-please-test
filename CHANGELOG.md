@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.6.2](https://github.com/tgrbrooks/release-please-test/compare/root-v0.6.1...root-v0.6.2) (2025-12-04)
+
+
+### Tests
+
+* commit ([709ca53](https://github.com/tgrbrooks/release-please-test/commit/709ca53d9d9de1438d2ddf9e3eb949bb8e2ea794))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-package-2 bumped from 0.2.1 to 0.2.2
+
 ## [0.6.1](https://github.com/tgrbrooks/release-please-test/compare/root-v0.6.0...root-v0.6.1) (2025-12-03)
 
 
