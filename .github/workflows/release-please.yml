@@ -6,12 +6,10 @@ on:
       - main
 
 permissions:
+  id-token: write
   contents: write
   pull-requests: write
   id-token: write
-
-env:
-  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
 jobs:
   release-please:

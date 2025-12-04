@@ -26,31 +26,19 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
-          registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          registry-url: "https://registry.npmjs.org"
       - run: yarn install --frozen-lockfile
         if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Set dev version
         if: ${{ steps.changes.outputs.package == 'true' }}
         id: version
         working-directory: ${{ inputs.package }}
         run: |
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          if [ -n "${{ inputs.candidate_version }}" ]; then
-            # Use candidate version if provided
-            DEV_VERSION="${{ inputs.candidate_version }}-dev.${SHORT_SHA}"
-            npm pkg set version="${DEV_VERSION}"
-            echo "Publishing dev version: ${DEV_VERSION}"
-          else
-            # Fall back to npm version prerelease
-            npm version prerelease --preid=dev.${SHORT_SHA} --no-git-tag-version
-            DEV_VERSION=$(npm pkg get version | tr -d '"')
-            echo "Publishing dev version: ${DEV_VERSION}"
-          fi
+          DEV_VERSION="${{ inputs.candidate_version }}-dev.${SHORT_SHA}"
+          npm pkg set version="${DEV_VERSION}"
+          echo "Publishing dev version: ${DEV_VERSION}"
           echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
       - name: Publish dev release
         if: ${{ steps.changes.outputs.package == 'true' }}
@@ -58,5 +46,3 @@ jobs:
         run: |
           cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
           yarn publish --tag dev --non-interactive
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

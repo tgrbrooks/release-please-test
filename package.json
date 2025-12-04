@@ -10,6 +10,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "release-please-test-package-2": "0.2.2"
+    "release-please-test-pkg-2": "0.2.2"
   }
 }

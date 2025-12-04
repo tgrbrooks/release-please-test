@@ -17,17 +17,11 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
-          registry-url: "https://registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          registry-url: "https://registry.npmjs.org"
       - run: yarn install --frozen-lockfile
         working-directory: ${{ inputs.package }}
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish ${{ inputs.package }} release
         working-directory: ${{ inputs.package }}
         run: |
           cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
           yarn publish --non-interactive
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

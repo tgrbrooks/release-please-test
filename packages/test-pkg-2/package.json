@@ -1,5 +1,5 @@
 {
-  "name": "release-please-test-package-2",
+  "name": "release-please-test-pkg-2",
   "version": "0.2.2",
   "description": "",
   "main": "index.js",
@@ -10,4 +10,3 @@
   "author": "",
   "license": "MIT"
 }
-

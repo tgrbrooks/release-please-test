@@ -34,7 +34,7 @@
             "component": "package-2",
             "release-type": "node",
             "path": "packages/test-pkg-2",
-            "package-name": "release-please-test-package-2"
+            "package-name": "release-please-test-pkg-2"
         }
     },
     "plugins": [
