@@ -48,5 +48,6 @@ jobs:
         if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
         run: |
-          npm config set '//registry.npmjs.org'
+          rm -f ~/.npmrc
+          npm config set '//registry.npmjs.org' -ws=false
           yarn publish --tag dev --non-interactive
