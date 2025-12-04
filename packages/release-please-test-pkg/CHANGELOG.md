@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.4...package-v1.1.0) (2025-12-04)
+
+
+### Features
+
+* trusted publish ([f3ed6d6](https://github.com/tgrbrooks/release-please-test/commit/f3ed6d6dd84d0cea8f4319ffc021690b50475003))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-pkg-2 bumped from 0.2.2 to 0.3.0
+
 ## [1.0.4](https://github.com/tgrbrooks/release-please-test/compare/package-v1.0.3...package-v1.0.4) (2025-12-04)
 
 
