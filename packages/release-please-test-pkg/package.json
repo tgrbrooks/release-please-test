@@ -1,6 +1,6 @@
 {
   "name": "release-please-test-package",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "release-please-test-package-2": "0.2.1"
+    "release-please-test-package-2": "0.2.2"
   }
 }

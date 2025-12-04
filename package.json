@@ -1,6 +1,6 @@
 {
   "name": "release-please-test",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "main": "index.js",
   "repository": "https://github.com/tgrbrooks/release-please-test.git",
   "author": "Tom Brooks <tom.brooks@mytos.bio>",
@@ -10,6 +10,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "release-please-test-package-2": "0.2.1"
+    "release-please-test-package-2": "0.2.2"
   }
 }
