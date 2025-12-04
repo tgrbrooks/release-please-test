@@ -57,9 +57,5 @@ jobs:
         if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
         run: |
-          npm install -g npm@latest
-          #rm -f .npmrc
-          #rm -f ~/.npmrc
-          #rm -f $NPM_CONFIG_USERCONFIG
-          #npm config set registry 'https://registry.npmjs.org' -ws=false
+          npm install -g npm@11.6.4
           npm publish --tag dev --non-interactive

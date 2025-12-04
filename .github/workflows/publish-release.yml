@@ -28,7 +28,12 @@ jobs:
         working-directory: ${{ inputs.package }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish ${{ inputs.package }} release
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.9.0'
+          registry-url: "https://registry.npmjs.org"
+      - name: Publish dev release
         working-directory: ${{ inputs.package }}
         run: |
-          yarn publish --non-interactive
+          npm install -g npm@11.6.4
+          npm publish --tag dev --non-interactive
