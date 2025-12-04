@@ -35,6 +35,10 @@
             "release-type": "node",
             "path": "packages/test-pkg-2",
             "package-name": "release-please-test-pkg-2"
+        },
+        "packages/python-pkg": {
+            "component": "python-pkg",
+            "release-type": "python"
         }
     },
     "plugins": [

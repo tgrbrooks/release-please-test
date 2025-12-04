@@ -58,4 +58,4 @@ jobs:
         working-directory: ${{ inputs.package }}
         run: |
           npm install -g npm@11.6.4
-          npm publish --tag dev --non-interactive
+          npm publish --tag dev
