@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/tgrbrooks/release-please-test/compare/package-2-v0.2.2...package-2-v0.3.0) (2025-12-04)
+
+
+### Features
+
+* trusted publish ([f3ed6d6](https://github.com/tgrbrooks/release-please-test/commit/f3ed6d6dd84d0cea8f4319ffc021690b50475003))
+
 ## [0.2.2](https://github.com/tgrbrooks/release-please-test/compare/package-2-v0.2.1...package-2-v0.2.2) (2025-12-04)
 
 

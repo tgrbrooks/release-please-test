@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.7.0](https://github.com/tgrbrooks/release-please-test/compare/root-v0.6.2...root-v0.7.0) (2025-12-04)
+
+
+### Features
+
+* trusted publish ([f3ed6d6](https://github.com/tgrbrooks/release-please-test/commit/f3ed6d6dd84d0cea8f4319ffc021690b50475003))
+
+
+### Bug Fixes
+
+* token ([8005d05](https://github.com/tgrbrooks/release-please-test/commit/8005d05d893b8fe894d7058c5ec78630a92d841a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-pkg-2 bumped from 0.2.2 to 0.3.0
+
 ## [0.6.2](https://github.com/tgrbrooks/release-please-test/compare/root-v0.6.1...root-v0.6.2) (2025-12-04)
 
 
