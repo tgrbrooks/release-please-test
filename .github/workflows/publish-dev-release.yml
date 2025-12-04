@@ -27,9 +27,13 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "yarn"
           registry-url: "https://registry.npmjs.org"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn install --frozen-lockfile
         if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Set dev version
         if: ${{ steps.changes.outputs.package == 'true' }}
         id: version
@@ -44,5 +48,4 @@ jobs:
         if: ${{ steps.changes.outputs.package == 'true' }}
         working-directory: ${{ inputs.package }}
         run: |
-          cp "$NPM_CONFIG_USERCONFIG" ~/.npmrc
           yarn publish --tag dev --non-interactive
