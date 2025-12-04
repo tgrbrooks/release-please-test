@@ -9,6 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tgrbrooks/release-please-test.git"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
