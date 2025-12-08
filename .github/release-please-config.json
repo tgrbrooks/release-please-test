@@ -45,10 +45,12 @@
         {
             "type": "linked-versions",
             "groupName": "rootGroup",
-            "components": ["root", "package", "package-2", "python-pkg"]
+            "components": ["root", "package", "package-2", "python-pkg"],
+            "merge": false
         },
         {
-            "type": "node-workspace"
+            "type": "node-workspace",
+            "merge": false
         }
     ]
 }
