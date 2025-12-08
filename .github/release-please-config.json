@@ -42,6 +42,13 @@
         }
     },
     "plugins": [
-        {"type": "node-workspace", "merge": false}
+        {
+            "type": "linked-versions",
+            "groupName": "rootGroup",
+            "components": ["root", "package-2"]
+        },
+        {
+            "type": "node-workspace"
+        }
     ]
 }

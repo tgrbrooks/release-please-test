@@ -9,9 +9,6 @@ on:
       candidate_version:
         required: true
         type: string
-  push:
-    branches:
-      - test-62
 
 permissions:
   contents: read
@@ -19,7 +16,7 @@ permissions:
 
 jobs:
   publish:
-    name: Publish ${{ inputs.package || 'packages/release-please-test-pkg' }} Dev Release
+    name: Publish ${{ inputs.package }} Dev Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -27,7 +24,7 @@ jobs:
         id: changes
         with:
           filters: |
-            package: ${{ inputs.package || 'packages/release-please-test-pkg' }}/**
+            package: ${{ inputs.package }}/**
       - uses: actions/setup-node@v4
         if: ${{ steps.changes.outputs.package == 'true' }}
         with:
@@ -38,16 +35,16 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn install --frozen-lockfile
         if: ${{ steps.changes.outputs.package == 'true' }}
-        working-directory: ${{ inputs.package || 'packages/release-please-test-pkg' }}
+        working-directory: ${{ inputs.package }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Set dev version
         if: ${{ steps.changes.outputs.package == 'true' }}
         id: version
-        working-directory: ${{ inputs.package || 'packages/release-please-test-pkg' }}
+        working-directory: ${{ inputs.package }}
         run: |
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          DEV_VERSION="${{ inputs.candidate_version || '1.1.2' }}-dev.${SHORT_SHA}"
+          DEV_VERSION="${{ inputs.candidate_version }}-dev.${SHORT_SHA}"
           npm pkg set version="${DEV_VERSION}"
           echo "Publishing dev version: ${DEV_VERSION}"
           echo "dev_version=${DEV_VERSION}" >> $GITHUB_OUTPUT
@@ -58,7 +55,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Publish dev release
         if: ${{ steps.changes.outputs.package == 'true' }}
-        working-directory: ${{ inputs.package || 'packages/release-please-test-pkg' }}
+        working-directory: ${{ inputs.package }}
         run: |
           npm install -g npm@11.6.4
           npm publish --tag dev
