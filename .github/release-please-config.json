@@ -45,7 +45,7 @@
         {
             "type": "linked-versions",
             "groupName": "rootGroup",
-            "components": ["root", "package-2"]
+            "components": ["root", "package", "package-2", "python-pkg"]
         },
         {
             "type": "node-workspace"
