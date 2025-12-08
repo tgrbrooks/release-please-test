@@ -1,9 +1,9 @@
 {
-    ".": "1.1.1",
+    ".": "0.8.0",
     "filler-to-prevent-merge-conflicts": "0.0.0",
     "packages/release-please-test-pkg": "1.1.1",
     "filler-to-prevent-merge-conflicts-2": "0.0.0",
-    "packages/test-pkg-2": "1.1.1",
+    "packages/test-pkg-2": "0.3.1",
     "filler-to-prevent-merge-conflicts-3": "0.0.0",
-    "packages/python-pkg": "1.1.1"
+    "packages/python-pkg": "0.2.0"
 }
