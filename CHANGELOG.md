@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.2.0](https://github.com/tgrbrooks/release-please-test/compare/root-v0.8.0...root-v1.2.0) (2025-12-08)
+
+
+### Features
+
+* link versions ([3791775](https://github.com/tgrbrooks/release-please-test/commit/379177591d33e8c40d98c6d286c7c290f623eeae))
+
+
+### Bug Fixes
+
+* fix version numbers ([2b1fef6](https://github.com/tgrbrooks/release-please-test/commit/2b1fef6bf70ea6e7349a7316d1b341d32dbbddbc))
+* link all versions ([a5d6948](https://github.com/tgrbrooks/release-please-test/commit/a5d6948769fcc21adfd003929d246c5d6beaa1c0))
+* no merge ([7c21d3b](https://github.com/tgrbrooks/release-please-test/commit/7c21d3bea374da17d9c82335a202e19d7908c893))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-pkg-2 bumped from 0.3.1 to 1.2.0
+
 ## [0.8.0](https://github.com/tgrbrooks/release-please-test/compare/root-v0.7.0...root-v0.8.0) (2025-12-04)
 
 

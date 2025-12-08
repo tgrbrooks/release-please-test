@@ -1,6 +1,6 @@
 {
   "name": "release-please-test-pkg-2",
-  "version": "0.3.1",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {

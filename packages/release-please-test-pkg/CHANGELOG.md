@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/tgrbrooks/release-please-test/compare/package-v1.1.1...package-v1.2.0) (2025-12-08)
+
+
+### Features
+
+* link versions ([3791775](https://github.com/tgrbrooks/release-please-test/commit/379177591d33e8c40d98c6d286c7c290f623eeae))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-pkg-2 bumped from 0.3.1 to 1.2.0
+
 ## [1.1.1](https://github.com/tgrbrooks/release-please-test/compare/package-v1.1.0...package-v1.1.1) (2025-12-04)
 
 
