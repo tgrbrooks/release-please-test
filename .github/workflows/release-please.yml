@@ -34,20 +34,20 @@ jobs:
         id: parse-versions
         if: steps.release.outputs.prs != ''
         run: |
-          PRS_JSON='${{ toJSON(steps.release.outputs.prs) }}'
+          PRS_JSON='${{ steps.release.outputs.prs }}'
           # Parse JSON and extract the body from the first PR
-          PR_BODY=$(echo "$PRS_JSON" | jq -r '.[0].body // empty' 2>/dev/null || echo "$PRS_JSON")
           
           # Extract version numbers from patterns like:
           # <details><summary>root: 0.6.0</summary>
           # <details><summary>package: 1.0.3</summary>
           # <details><summary>package-2: 0.2.1</summary>
           
-          ROOT_VERSION=$(echo "$PR_BODY" | sed -n 's/.*root:[[:space:]]*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p' | head -n1)
+          ROOT_VERSION=$(echo "$PRS_JSON" | sed -nE 's/.*root:[[:space:]]*([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' | head -n1)
           echo "root_version=$ROOT_VERSION" >> $GITHUB_OUTPUT
-          PACKAGE_VERSION=$(echo "$PR_BODY" | sed -n 's/.*package:[[:space:]]*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p' | head -n1)
+          PACKAGE_VERSION=$(echo "$PRS_JSON" | sed -nE 's/.*package:[[:space:]]*([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' | head -n1)
           echo "package_version=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
-          PACKAGE_2_VERSION=$(echo "$PR_BODY" | sed -n 's/.*package-2:[[:space:]]*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p' | head -n1)
+          PACKAGE_2_VERSION=$(echo "$PRS_JSON" | sed -nE 's/.*package-2:[[:space:]]*([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' | head -n1)
+          echo "package_version=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
           echo "package_2_version=$PACKAGE_2_VERSION" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v6
         if: ${{ steps.release.outputs.release_created }}
