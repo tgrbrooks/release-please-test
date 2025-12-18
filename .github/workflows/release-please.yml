@@ -33,10 +33,9 @@ jobs:
       - name: Parse package versions from PRs
         id: parse-versions
         if: steps.release.outputs.prs != ''
+        env:
+          PRS_JSON: ${{ steps.release.outputs.prs }}
         run: |
-          PRS_JSON='${{ steps.release.outputs.prs }}'
-          # Parse JSON and extract the body from the first PR
-          
           # Extract version numbers from patterns like:
           # <details><summary>root: 0.6.0</summary>
           # <details><summary>package: 1.0.3</summary>
