@@ -43,3 +43,40 @@ jobs:
           commit_message: "chore: update test.json with package version ${{ steps.read-version.outputs.version }}"
           file_pattern: test.json
 
+  check-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4.3.1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Get versions
+        id: versions
+        run: |
+          echo "device_communication_version=$(npm view release-please-test-pkg-2 version)" >> $GITHUB_OUTPUT
+          echo "operations_version=$(npm view @mytosbio/operations version)" >> $GITHUB_OUTPUT
+
+      - name: Check allowed prerelease versions
+        run: |
+          # Version can be either a normal semver or of the form x.y.z-dev.<short commit sha>
+          if ! [[ ${{ steps.versions.outputs.device_communication_version }} =~ ^\d+\.\d+\.\d+(?:-dev\.[0-9a-fA-F]{7})?$ ]]; then
+            echo "Device communication version is not a release or prerelease version"
+            exit 1
+          fi
+
+      - name: Check allowed release versions
+        if: "contains(github.event.pull_request.labels.*.name, 'autorelease: pending')"
+        run: |
+          if ! [[ ${{ steps.versions.outputs.device_communication_version }} =~ ^\d+\.\d+\.\d+$ ]]; then
+            echo "Device communication version is not a release version"
+            exit 1
+          fi
