@@ -2,3 +2,7 @@
 # yarn lockfile v1
 
 
+release-please-test-pkg-2@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/release-please-test-pkg-2/-/release-please-test-pkg-2-1.2.0.tgz#c27fc07359cdc6e8557cc2891cefcc35ae5cf0e6"
+  integrity sha512-RPVVPIk2SAN7+ZpqhQRM+vlVZjdR8S6wHKi5Of1IdkBrJk9m2ErhIOkMAqUo86JtY38UuwAr9mPG+IU36jCdBw==
