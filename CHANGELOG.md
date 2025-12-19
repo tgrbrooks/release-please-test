@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.2.1](https://github.com/tgrbrooks/release-please-test/compare/root-v1.2.0...root-v1.2.1) (2025-12-19)
+
+
+### Bug Fixes
+
+* env var ([1ef5bb8](https://github.com/tgrbrooks/release-please-test/commit/1ef5bb896221ba7bdf69eecdd6820aa8b1123a51))
+* token ([ed16714](https://github.com/tgrbrooks/release-please-test/commit/ed1671481cd6b176f1c0604efee098032cfa7a8d))
+
+
+### Reverts
+
+* test ([7345bcc](https://github.com/tgrbrooks/release-please-test/commit/7345bccd014d99dd0da069163e7dffafdbbaef62))
+* test ([5d9351d](https://github.com/tgrbrooks/release-please-test/commit/5d9351d5bfe59d6845df1cf2af86fb23fa39ae4c))
+
+
+### Miscellaneous Chores
+
+* print ([f9d86fd](https://github.com/tgrbrooks/release-please-test/commit/f9d86fd91b504840907f7153b847783051971d24))
+
+
+### Tests
+
+* update version 2 ([2ab6ec2](https://github.com/tgrbrooks/release-please-test/commit/2ab6ec245c80cd0f7ea6de13f1c471a301810fc2))
+
+
+### Continuous Integration
+
+* check versions ([e88b687](https://github.com/tgrbrooks/release-please-test/commit/e88b6872e97da4e9d612cabbad86f30fea8de60f))
+* fix ([f7d87da](https://github.com/tgrbrooks/release-please-test/commit/f7d87daf54720079ba37422760acd4f59497abe0))
+* fix json parsing ([c789d45](https://github.com/tgrbrooks/release-please-test/commit/c789d451779c8553d465c3ed23fe3aec70c34ab2))
+* test ([56aa7b4](https://github.com/tgrbrooks/release-please-test/commit/56aa7b49becad218c399a604aeabcdbe0156f85b))
+* test ([a55a98c](https://github.com/tgrbrooks/release-please-test/commit/a55a98cbbc5ed1ae8f2ad8107af8bb0ba01497b3))
+* test2 ([4880ba3](https://github.com/tgrbrooks/release-please-test/commit/4880ba397324a3349962c8acab0b956e12c4b5c8))
+* test3 ([425cc29](https://github.com/tgrbrooks/release-please-test/commit/425cc2956d60c4bf687e6880b58b57ae8424f5e9))
+* test4 ([afb1118](https://github.com/tgrbrooks/release-please-test/commit/afb1118b1cc329f1f30bdbf80426efc03e7532a0))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-pkg-2 bumped from 1.2.0 to 1.2.1
+
 ## [1.2.0](https://github.com/tgrbrooks/release-please-test/compare/root-v0.8.0...root-v1.2.0) (2025-12-08)
 
 
