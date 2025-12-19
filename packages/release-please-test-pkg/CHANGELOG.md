@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.1](https://github.com/tgrbrooks/release-please-test/compare/package-v1.2.0...package-v1.2.1) (2025-12-19)
+
+
+### Bug Fixes
+
+* env var ([1ef5bb8](https://github.com/tgrbrooks/release-please-test/commit/1ef5bb896221ba7bdf69eecdd6820aa8b1123a51))
+
+
+### Documentation
+
+* test ([ab6f3f6](https://github.com/tgrbrooks/release-please-test/commit/ab6f3f670aef76e0528b03b997ea0c9e1c4fe683))
+
+
+### Continuous Integration
+
+* test ([a55a98c](https://github.com/tgrbrooks/release-please-test/commit/a55a98cbbc5ed1ae8f2ad8107af8bb0ba01497b3))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * release-please-test-pkg-2 bumped from 1.2.0 to 1.2.1
+
 ## [1.2.0](https://github.com/tgrbrooks/release-please-test/compare/package-v1.1.1...package-v1.2.0) (2025-12-08)
 
 
