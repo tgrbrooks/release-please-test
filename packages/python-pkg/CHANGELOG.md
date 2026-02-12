@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/tgrbrooks/release-please-test/compare/python-pkg-v1.2.0...python-pkg-v1.2.1) (2025-12-19)
+
+
+### Miscellaneous Chores
+
+* **python-pkg:** Synchronize rootGroup versions
+
 ## [1.2.0](https://github.com/tgrbrooks/release-please-test/compare/python-pkg-v0.2.0...python-pkg-v1.2.0) (2025-12-08)
 
 
